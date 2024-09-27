@@ -1,0 +1,240 @@
+<<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motortool Guatemala</title>
+    <link rel="stylesheet" href="Importación.css">
+    <style>
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .color-option {
+            width: 50px;
+            height: 50px;
+            margin: 0 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border 0.3s;
+        }
+
+        .color-option:hover {
+            border: 2px solid #fff;
+        }
+
+        .color-option.selected {
+            border: 2px solid #ff0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Motortool Guatemala: Importación Personalizada de Vehículos</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="servicios.html">Servicio</a></li>
+            <li><a href="vehiculos disponibles.html">Vehículos</a></li>
+            <li><a href="Importación.html">Importación</a></li>
+        </ul>
+    </nav>
+    <main>
+        <p>En Motortool Guatemala, nos especializamos en la importación de vehículos desde Corea del Sur, adaptados a las necesidades
+           y gustos específicos de cada cliente. Ofrecemos un servicio personalizado que garantiza que cada cliente reciba el automóvil ideal,
+           gestionando todos los trámites necesarios para su importación a Guatemala.</p>
+        
+        <h2>Arma tu propio vehículo</h2>
+        <form>
+            <label for="tipo">Tipo de vehículo:</label>
+            <select id="tipo" name="tipo" onchange="updateBrandOptions()">
+                <option value="carro">🚗 Carro</option>
+                <option value="camion">🚚 Camión</option>
+                <option value="suv">🚙 SUV</option>
+                <option value="autobus">🚌 Autobús</option>
+            </select>
+
+            <label for="marca">Marca:</label>
+            <select id="marca" name="marca" onchange="updateModelOptions()">
+                <!-- Las opciones de marca se actualizarán según el tipo de vehículo -->
+            </select>
+
+            <label for="linea">Línea de Vehículo:</label>
+            <select id="linea" name="linea" onchange="updateYearOptions()">
+                <!-- Las opciones de línea de vehículo se actualizarán según la marca seleccionada -->
+            </select>
+
+            <label for="anio">Modelo:</label>
+            <select id="anio" name="anio">
+                <!-- Las opciones de año se actualizarán según la línea de vehículo seleccionada -->
+            </select>
+
+            <h3>Personalización</h3>
+
+            <label for="tapiceria">Tapicería:</label>
+            <select id="tapiceria" name="tapiceria">
+                <option value="tela">Tela</option>
+                <option value="cuero">Cuero</option>
+                <option value="mixto">Mixto</option>
+            </select>
+
+            <label for="aros">Aros para neumáticos:</label>
+            <select id="aros" name="aros">
+                <option value="alu">Aluminio</option>
+                <option value="mag">Magnesio</option>
+                <option value="composite">Compuestos</option>
+            </select>
+
+            <h4>Paleta de colores:</h4>
+            <div class="color-palette">
+                <div class="color-option" style="background-color: #000000;" onclick="selectColor('#000000')" title="Negro Mate"></div>
+                <div class="color-option" style="background-color: #1E90FF;" onclick="selectColor('#1E90FF')" title="Azul Mate"></div>
+                <div class="color-option" style="background-color: #FFFFFF;" onclick="selectColor('#FFFFFF')" title="Blanco Mate"></div>
+                <div class="color-option" style="background-color: #FF0000;" onclick="selectColor('#FF0000')" title="Rojo Mate"></div>
+                <div class="color-option" style="background-color: #808080;" onclick="selectColor('#808080')" title="Gris Mate"></div>
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+
+    <script>
+        const vehicleData = {
+            carro: {
+                kia: {
+                    Rio: ['2018', '2019', '2020'],
+                    Cerato: ['2017', '2018', '2019'],
+                    Forte: ['2019', '2020', '2021']
+                },
+                hyundai: {
+                    Elantra: ['2016', '2017', '2018'],
+                    Accent: ['2017', '2018', '2019'],
+                    Sonata: ['2018', '2019', '2020']
+                },
+                ssangYong: {
+                    Tivoli: ['2016', '2017', '2018'],
+                    Korando: ['2019', '2020', '2021']
+                }
+            },
+            camion: {
+                kia: {
+                    BongoIII: ['2008', '2012', '2013', '2014'],
+                },
+                hyundai: {
+                    PorterII: ['2010', '2013', '2014', '2017'],
+                },
+                ssangYong: {
+                    RextonSports: ['2019', '2020', '2021']
+                }
+            },
+            suv: {
+                kia: {
+                    Carnival: ['2007'],
+                    Sportage: ['2012'],
+                    Sorento: ['2003', '2010']
+                },
+                hyundai: {
+                    Tucson: ['2006',],
+                    SantaFe: ['2009',],
+                    Starex: ['2014',]
+                },
+                ssangYong: {
+                    Rexton: ['2019', '2020', '2021'],
+                    Korando: ['2018', '2019', '2020']
+                }
+            },
+            autobus: {
+                kia: {
+                    Granbird: ['2015', '2016', '2017']
+                },
+                hyundai: {
+                    County: ['2016', '2017', '2018'],
+                    Universe: ['2017', '2018', '2019']
+                },
+                ssangYong: {
+                    Rodius: ['2017', '2018', '2019']
+                }
+            }
+        };
+
+        function updateBrandOptions() {
+            const tipo = document.getElementById('tipo').value;
+            const marca = document.getElementById('marca');
+            marca.innerHTML = '';
+
+            const marcasDisponibles = Object.keys(vehicleData[tipo]);
+
+            marcasDisponibles.forEach(marcaName => {
+                const opt = document.createElement('option');
+                opt.value = marcaName;
+                opt.innerHTML = capitalizeFirstLetter(marcaName);
+                marca.appendChild(opt);
+            });
+
+            updateModelOptions(); 
+        }
+
+        function updateModelOptions() {
+            const tipo = document.getElementById('tipo').value;
+            const marca = document.getElementById('marca').value;
+            const linea = document.getElementById('linea');
+            linea.innerHTML = '';
+
+            const lineasDisponibles = Object.keys(vehicleData[tipo][marca]);
+
+            lineasDisponibles.forEach(lineaName => {
+                const opt = document.createElement('option');
+                opt.value = lineaName;
+                opt.innerHTML = lineaName;
+                linea.appendChild(opt);
+            });
+
+            updateYearOptions();
+        }
+
+        function updateYearOptions() {
+            const tipo = document.getElementById('tipo').value;
+            const marca = document.getElementById('marca').value;
+            const linea = document.getElementById('linea').value;
+            const anio = document.getElementById('anio');
+            anio.innerHTML = '';
+
+            const aniosDisponibles = vehicleData[tipo][marca][linea];
+
+            aniosDisponibles.forEach(anioValue => {
+                const opt = document.createElement('option');
+                opt.value = anioValue;
+                opt.innerHTML = anioValue;
+                anio.appendChild(opt);
+            });
+        }
+
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        function selectColor(color) {
+            const colorOptions = document.querySelectorAll('.color-option');
+            colorOptions.forEach(option => {
+                option.classList.remove('selected');
+            });
+
+            const selectedOption = Array.from(colorOptions).find(option => 
+                option.style.backgroundColor === color
+            );
+
+            if (selectedOption) {
+                selectedOption.classList.add('selected');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', updateBrandOptions);
+    </script>
+</body>
+</html>

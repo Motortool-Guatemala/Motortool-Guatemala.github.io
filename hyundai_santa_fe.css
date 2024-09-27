@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.header img {
+    width: 100%; /* La imagen ocupa el 100% del ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el área del contenedor sin distorsión */
+    max-height: 500px; /* Limita la altura máxima en pantallas más grandes */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content h1 {
+    color: #333;
+}
+
+.content p {
+    color: #666;
+    line-height: 1.6;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos específicos para tablets */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 30px 0;
+    }
+
+    .header img {
+        max-width: 90%;  /* Limita el ancho máximo al 90% del contenedor en tablets */
+        max-height: 350px; /* Altura máxima más baja para tablets */
+        margin-left: auto;
+        margin-right: auto; /* Asegura que la imagen esté centrada horizontalmente */
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    footer {
+        padding: 15px;
+    }
+}
+
+/* Estilos específicos para móviles */
+@media (max-width: 480px) {
+    .header {
+        padding: 20px 0;
+    }
+
+    .header img {
+        max-width: 100%; /* Imagen ocupa el 100% del ancho en móviles */
+        max-height: 250px; /* Limita la altura a 250px en pantallas más pequeñas */
+        margin-left: auto;
+        margin-right: auto; /* Asegura que la imagen esté centrada */
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    footer {
+        padding: 10px;
+    }
+}

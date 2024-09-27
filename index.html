@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Motortool Página Web</title>
+    <style>
+        /* Estilos para el carrusel */
+        .carousel {
+            position: relative;
+            height: 60vh; /* Ajusta la altura según necesites */
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.8); /* Fondo oscuro para el carrusel */
+        }
+
+        .carousel-text {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .carousel-active {
+            opacity: 1;
+        }
+
+        /* Estilos generales */
+        .head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #00000081;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .content {
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #f00;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .address-box {
+            width: 45%;
+            margin: 10px 0;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .address-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <div class="logo">
+            <a href="#">Motortool Guatemala</a>
+        </div>
+        <nav class="navbar">
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="productos.html">Productos</a>
+            <a href="servicios.html">Servicio</a>
+            <a href="vehiculos disponibles.html">Vehículos</a>
+            <a href="Importación.html">Importación</a>
+        </nav>   
+    </div>
+    <header class="content header carousel">
+        <div class="carousel-text carousel-active">
+            <img src="motortool-logo-1.png" alt="">
+        </div>
+        <div class="carousel-text">
+            <img src="instalaciones_garita.jpg" alt="">
+        </div>
+        <div class="carousel-text">
+            <img src="funcionamiento_de_inyectores.jpg" alt="">
+        </div>
+        <div class="carousel-text">
+            <img src="inyectores_2.JPG" alt="">
+        </div>
+        <div class="carousel-text">
+            <img src="Reparacion-_DSC8773.jpg" alt="">
+        </div>
+            <div class="carousel-text">
+                <img src="capacitacion.jpg" alt="">
+            </div>
+    </header>
+
+    <script>
+        // JavaScript para el carrusel
+        let currentIndex = 0;
+        const texts = document.querySelectorAll('.carousel-text');
+        
+        function showNextText() {
+            texts[currentIndex].classList.remove('carousel-active');
+            currentIndex = (currentIndex + 1) % texts.length;
+            texts[currentIndex].classList.add('carousel-active');
+        }
+        
+        setInterval(showNextText, 3000); // Cambia cada 3 segundos
+    </script>
+
+    <section class="content sau">
+        <h2 class="title">Productos</h2>
+        <p>¡Descubre nuestra increíble variedad de productos automotrices!
+            <br>
+            En nuestra tienda, encontrarás todo lo que necesitas para mantener tu vehículo en perfecto estado. Ofrecemos una amplia gama de repuestos para automóviles, incluyendo:
+            <br>
+            - Filtros de combustible para autos: Asegura el rendimiento óptimo de tu motor.
+            <br>
+            - Bombas: Desde bombas de agua hasta bombas de combustible diésel, tenemos lo que necesitas.
+            <br>
+            - Motores: Encuentra motores de alta calidad para cualquier tipo de vehículo coreano diésel.
+            <br>
+            - Baterías para vehículo: Mantén tu vehículo siempre listo para arrancar con nuestras baterías de larga duración.
+            <br>
+            Además, contamos con un equipo de expertos listos para asesorarte y ayudarte a encontrar el repuesto perfecto para tu vehículo. ¡No esperes más y mejora el rendimiento de tu vehículo hoy mismo!
+            Pulsa el botón para conocer más sobre nuestros productos. 
+        </p>
+        <a href="productos.html" class="btn">Conocer Productos</a>
+    </section>
+
+    <section class="content about">
+        <h2 class="title">Nosotros</h2>
+        <p>Motortool Guatemala se especializa en la reparación, mantenimiento y soporte de vehículos coreanos como Hyundai, Kia y SsangYong.
+            Ubicados en Guatemala, ofrecemos servicios de alta calidad y productos de mantenimiento a precios competitivos, incluyendo aceites, filtros y herramientas especializadas.
+            Nuestro equipo de técnicos capacitados y atención personalizada garantizan que tu vehículo esté siempre en óptimas condiciones.
+            ¡Visítanos para descubrir por qué somos la mejor opción para el cuidado de tu vehículo coreano.</p>
+        <a href="nosotros.html" class="btn">Sobre Nosotros</a>       
+    </section>
+
+    <section class="content price">
+        <article class="contain">
+            <h2 class="title">Servicios</h2>
+            <p>Motortool Guatemala ofrece servicios especializados para vehículos coreanos, incluyendo diagnóstico de inyectores,
+                reprogramación de computadoras y escaneo de fallas.
+                Utilizamos tecnología avanzada para identificar y solucionar problemas, mejorando la eficiencia y rendimiento de tu auto.
+                Nuestro equipo de técnicos capacitados garantiza un servicio de calidad y atención personalizada.
+                Confía en nosotros para mantener tu vehículo en perfectas condiciones.
+            </p>
+            <a href="servicios.html" class="btn">Saber Servicio</a>
+        </article>
+    </section>
+
+    <section class="content vehicles">
+        <h2 class="title">Vehículos Disponibles</h2>
+        <p>En Motortool Guatemala, contamos con una increíble variedad de vehículos diésel de marcas coreanas como Kia, Hyundai y SsangYong. 
+            Ya sea que busques un SUV robusto, un vehículo familiar o camiones ligeros para tu negocio, tenemos lo que necesitas. 
+            Nuestro catálogo incluye modelos como el Kia Sportage, Hyundai Tucson, Kia Carnival, y muchos más.
+        </p>
+        <p>Explora nuestra selección de vehículos disponibles para encontrar el que mejor se adapte a tus necesidades. Cada uno ofrece un rendimiento excepcional, tecnología de punta y la calidad que tu vehículo merece.</p>
+        <a href="vehiculos disponibles.html" class="btn">Ver Vehículos</a>
+    </section>
+
+    <section class="content contact">
+        <h2 class="title">Contacto</h2>
+        <div class="contact-container">
+            <div class="address-box">
+                <h3>Ciudad de Guatemala</h3>
+                <a href="https://api.whatsapp.com/send/?phone=56322210&text&type=phone_number&app_absent=0">
+                <p>Whatsapp: +502 5632 2210<br>
+                    <a href="https://www.facebook.com/share/vdgXJxJAXJoh4xdX/?mibextid=qi2Omg"target="_blank"> Motortool Guatemala
+                        <i class="fab fa-facebook"></i>
+                    </a><br>
+                </a>
+                O encuéntranos en:<br>
+                Ave. Petapa 18-62 Zona 12, Ciudad de Guatemala</p>
+                <figure class="map">
+                    <a href="https://www.google.com/maps/place/Motortool+Guatemala/@14.5789637,-90.5498769,17z/data=!4m6!3m5!1s0x8589a1f2346ac011:0xf4e49e4d1580aa40!8m2!3d14.5789546!4d-90.547302!16s%2Fg%2F11ll_m9cqb?entry=ttu&g_ep=EgoyMDI0MDkxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                        <img src="image-1.jpeg" alt="imagen de la dirección del lugar" style="width:100%;max-width:600px;">
+                    </a>
+                </figure>
+            </div>
+            <div class="address-box">
+                <h3>Salcajá</h3>
+                <a href="https://api.whatsapp.com/send/?phone=37622260&text&type=phone_number&app_absent=0">
+                <p>Whatsapp: 3762 2260<br>
+                </a>
+                <a href="https://www.facebook.com/share/8KeVjGgkyYdx4NFK/?mibextid=qi2Omg"target="_blank"> Motortool Salcajá
+                    <i class="fab fa-facebook"></i>
+                </a><br>
+                O encuéntranos en:<br>
+                Zona 0 Kilometro 192, Autopista Los Altos, Salcajá, Quetzaltenango </p>
+                <figure class="map">
+                    <a href="https://www.google.com/maps/place/MOTORTOOL+Salcaja+Quetzaltenango/@14.8867265,-91.4685171,17z/data=!3m1!4b1!4m6!3m5!1s0x858ea3c7554ec817:0xade5ef7b2591bedb!8m2!3d14.8867265!4d-91.4685171!16s%2Fg%2F11mmkvs07n?entry=ttu&g_ep=EgoyMDI0MDkxOC4xIKXMDSoASAFQAw%3D%3D" target="_blank">
+                        <img src="image_2.jpeg" alt="imagen de la dirección del lugar" style="width:100%;max-width:600px;">
+                    </a>
+                </figure>
+            </div>
+    </div>
+    </section>
+</body>
+</html>

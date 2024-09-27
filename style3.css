@@ -1,0 +1,127 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #f00;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center; /* Centrar los elementos de navegación */
+}
+
+nav ul li {
+    display: inline-block; /* Cambiar a inline-block para mejor control en móviles */
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #ffffff; /* Color blanco */
+    text-decoration: none; /* Sin subrayado ni decoración */
+}
+
+nav ul li a:hover {
+    color: #cccccc; /* Cambia el color al pasar el cursor, si lo deseas */
+}
+
+main {
+    padding: 20px;
+}
+
+#intro, #values {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#intro h2, #values h3 {
+    text-align: center;
+    color: #333;
+}
+
+#values ul {
+    list-style: none;
+    padding: 0;
+}
+
+#values ul li {
+    margin-bottom: 15px; /* Aumentar el espacio entre los valores */
+}
+
+#values ul li strong {
+    color: #f00;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+a {
+    color: #ffffff; /* Color blanco */
+    text-decoration: none; /* Sin subrayado ni decoración */
+}
+
+a:hover {
+    color: #cccccc; /* Cambia el color al pasar el cursor, si lo deseas */
+}
+
+footer a {
+    color: #ffffff; /* Color blanco para los enlaces en el pie de página */
+}
+
+footer a:hover {
+    color: #cccccc; /* Cambia el color al pasar el cursor, si lo deseas */
+}
+
+footer i {
+    margin-left: 10px; /* Espacio entre el texto y el ícono */
+    font-size: 1.2em; /* Tamaño del ícono */
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+    header, footer {
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    nav ul {
+        padding: 0;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    #intro, #values {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    footer {
+        position: static; /* Cambiar a estático para evitar problemas en móviles */
+        padding: 20px 0;
+    }
+}

@@ -1,0 +1,178 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #f00;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul a {
+        color: #ffffff; /* Color blanco */
+        font-weight: bold; /* Negritas */
+        text-decoration: none; /* Sin subrayado ni decoración */
+        margin: 0 10px; /* Espacio entre los enlaces */
+}
+
+nav ul a:hover {
+    color: #cccccc;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+ul li img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #cccccc;
+}
+
+/* Estilos del Carrusel */
+.carousel {
+    max-width: 800px; 
+    margin: 20px auto; 
+    border: 2px solid #f00; 
+    border-radius: 10px; 
+    overflow: hidden; 
+}
+
+.carousel img {
+    height: 300px; 
+    object-fit: cover; 
+}
+
+/* Estilos de la Sección Principal */
+main {
+    padding: 20px;
+    background-color: #ffffff; 
+}
+
+/* Estilos adicionales para ajustar las imágenes en dos columnas por fila */
+section ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+section ul li {
+    width: 48%; /* Ajusta el ancho para que quepan dos imágenes por fila */
+    box-sizing: border-box;
+}
+
+ul li img {
+    width: 100%; /* Asegura que las imágenes ocupen todo el ancho del contenedor */
+    height: 220px; /* Altura fija para mantener la uniformidad */
+    object-fit: cover; /* Ajusta la imagen para cubrir sin distorsionar */
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    nav ul {
+        padding: 0;
+    }
+
+    nav ul a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    ul li {
+        margin: 5px 0;
+    }
+
+    .carousel img {
+        width: 75%; 
+    }
+
+    /* Ajusta el layout a una sola columna en pantallas pequeñas */
+    section ul li {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 10px;
+    }
+
+    ul li {
+        padding: 5px;
+    }
+
+    footer {
+        padding: 15px 0;
+    }
+
+    .carousel img {
+        width: 90%; 
+    }
+}
