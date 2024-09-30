@@ -177,16 +177,12 @@ p {
 }
 
 .price {
-    background: url(kia_sorento.jpg) no-repeat center;
-    background-attachment: fixed;
-    background-size: cover;
+    background: #171717; 
     text-align: center;
 }
 
 .vehicles {
-    background: url(kia_sorento.jpg) no-repeat center;
-    background-attachment: fixed;
-    background-size: cover;
+    background: #1f1d1d; 
     text-align: center;
     padding: 150px 0 50px;
 }
