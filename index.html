@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="index.css">
     <title>Motortool Página Web</title>
     <style>
-        /* Estilos para el carrusel */
         .carousel {
             position: relative;
-            height: 60vh; /* Ajusta la altura según necesites */
+            height: 60vh;
             overflow: hidden;
-            background: rgba(0, 0, 0, 0.8); /* Fondo oscuro para el carrusel */
+            background: rgba(0, 0, 0, 0.8);
         }
 
         .carousel-text {
@@ -34,7 +33,6 @@
             opacity: 1;
         }
 
-        /* Estilos generales */
         .head {
             display: flex;
             justify-content: space-between;
@@ -80,7 +78,6 @@
             margin: 10px 0;
         }
 
-        /* Media Queries */
         @media (max-width: 768px) {
             .address-box {
                 width: 100%;
@@ -118,13 +115,12 @@
         <div class="carousel-text">
             <img src="Reparacion-_DSC8773.jpg" alt="">
         </div>
-            <div class="carousel-text">
-                <img src="capacitacion.jpg" alt="">
-            </div>
+        <div class="carousel-text">
+            <img src="capacitacion.jpg" alt="">
+        </div>
     </header>
 
     <script>
-        // JavaScript para el carrusel
         let currentIndex = 0;
         const texts = document.querySelectorAll('.carousel-text');
         
@@ -134,59 +130,64 @@
             texts[currentIndex].classList.add('carousel-active');
         }
         
-        setInterval(showNextText, 3000); // Cambia cada 3 segundos
+        setInterval(showNextText, 3000);
     </script>
-
-    <section class="content sau">
-        <h2 class="title">Productos</h2>
-        <p>¡Descubre nuestra increíble variedad de productos automotrices!
-            <br>
-            En nuestra tienda, encontrarás todo lo que necesitas para mantener tu vehículo en perfecto estado. Ofrecemos una amplia gama de repuestos para automóviles, incluyendo:
-            <br>
-            - Filtros de combustible para autos: Asegura el rendimiento óptimo de tu motor.
-            <br>
-            - Bombas: Desde bombas de agua hasta bombas de combustible diésel, tenemos lo que necesitas.
-            <br>
-            - Motores: Encuentra motores de alta calidad para cualquier tipo de vehículo coreano diésel.
-            <br>
-            - Baterías para vehículo: Mantén tu vehículo siempre listo para arrancar con nuestras baterías de larga duración.
-            <br>
-            Además, contamos con un equipo de expertos listos para asesorarte y ayudarte a encontrar el repuesto perfecto para tu vehículo. ¡No esperes más y mejora el rendimiento de tu vehículo hoy mismo!
-            Pulsa el botón para conocer más sobre nuestros productos. 
-        </p>
-        <a href="productos.html" class="btn">Conocer Productos</a>
-    </section>
 
     <section class="content about">
         <h2 class="title">Nosotros</h2>
-        <p>Motortool Guatemala se especializa en la reparación, mantenimiento y soporte de vehículos coreanos como Hyundai, Kia y SsangYong.
-            Ubicados en Guatemala, ofrecemos servicios de alta calidad y productos de mantenimiento a precios competitivos, incluyendo aceites, filtros y herramientas especializadas.
-            Nuestro equipo de técnicos capacitados y atención personalizada garantizan que tu vehículo esté siempre en óptimas condiciones.
-            ¡Visítanos para descubrir por qué somos la mejor opción para el cuidado de tu vehículo coreano.</p>
+        <p>MMotortool Guatemala especialista en la reparación, mantenimientos y
+            soportes de vehículos coreanos como Kia, Hyundai y ssanyong.
+            <br>
+            • Nuestro equipo de especialistas en CRDI pueden asesorarte con el mejor
+            funcionamiento para tus vehículos, contamos con amplia gama de repuestos de
+            calidad.
+            <br>
+            • Visítanos para descubrir porque somos la mejor opción para tu vehículo.</p>
         <a href="nosotros.html" class="btn">Sobre Nosotros</a>       
     </section>
 
     <section class="content price">
         <article class="contain">
             <h2 class="title">Servicios</h2>
-            <p>Motortool Guatemala ofrece servicios especializados para vehículos coreanos, incluyendo diagnóstico de inyectores,
-                reprogramación de computadoras y escaneo de fallas.
-                Utilizamos tecnología avanzada para identificar y solucionar problemas, mejorando la eficiencia y rendimiento de tu auto.
-                Nuestro equipo de técnicos capacitados garantiza un servicio de calidad y atención personalizada.
-                Confía en nosotros para mantener tu vehículo en perfectas condiciones.
+            <p> Ofrecemos servicios especializados como: Escaneo de vehículo,
+            diagnóstico de inyectores, diagnóstico de bomba, programación de computadoras.
+            <br>
+            • Contamos con la maquinaria especializada para la solución de tu vehículo.
+            <br>
+            • Confía en nosotros para mantener tu vehículo en perfectas condiciones.
+            
             </p>
             <a href="servicios.html" class="btn">Saber Servicio</a>
         </article>
     </section>
 
+    <section class="content sau">
+        <h2 class="title">Productos</h2>
+        <p>Descubre nuestra increíble gama de repuestos y todo lo que necesitas
+            para mantener tu vehículo en buen estado.
+            <br>
+            • Motores usados exportados básicos y completos.
+            <br>
+            • Contamos con: Inyectores nuevos y reconstruidos con piezas originales (Bosch,
+            Delphi, Denso).
+            <br>
+            • Bombas de alta presión reconstruidas con piezas originales (Bosch, Delphi, Denso).
+            <br>
+            • Turbos, filtros de combustibles, sensores, empaques, computadoras y repuestos de
+            carrocería.
+             
+        </p>
+        <a href="productos.html" class="btn">Conocer Productos</a>
+    </section>
+
     <section class="content vehicles">
         <h2 class="title">Vehículos Disponibles</h2>
-        <p>En Motortool Guatemala, contamos con una increíble variedad de vehículos diésel de marcas coreanas como Kia, Hyundai y SsangYong. 
-            Ya sea que busques un SUV robusto, un vehículo familiar o camiones ligeros para tu negocio, tenemos lo que necesitas. 
-            Nuestro catálogo incluye modelos como el Kia Sportage, Hyundai Tucson, Kia Carnival, y muchos más.
-        </p>
-        <p>Explora nuestra selección de vehículos disponibles para encontrar el que mejor se adapte a tus necesidades. Cada uno ofrece un rendimiento excepcional, tecnología de punta y la calidad que tu vehículo merece.</p>
+        <p>Exportamos variedad de vehículos coreanos Diesel como Kia, Hyundai,
+            Ssanyong, que se adaptan a tu comodidad como camionetas familiares y camiones
+            para tu negocio.</p>
+        <p>• Explora nuestra selección de vehículos disponibles</p>
         <a href="vehiculos disponibles.html" class="btn">Ver Vehículos</a>
+        <a href="Importación.html" class="btn">Importación</a>
     </section>
 
     <section class="content contact">
