@@ -1,0 +1,177 @@
+<<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motortool Guatemala - Selección de Vehículos</title>
+    <link rel="stylesheet" href="Importación.css">
+</head>
+<body>
+    <header>
+        <h1>Selecciona tu Vehículo</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="servicios.html">Servicio</a></li>
+            <li><a href="vehiculos disponibles.html">Vehículos</a></li>
+            <li><a href="Importación.html">Importación</a></li>
+        </ul>
+    </nav>
+    <main>
+        <form id="compra-form" action="/enviar-correo" method="POST">
+            <input type="hidden" id="nombre" name="nombre">
+            <input type="hidden" id="apellido" name="apellido">
+            <input type="hidden" id="nombreFactura" name="nombreFactura">
+            <input type="hidden" id="email" name="email">
+            <input type="hidden" id="phone" name="phone">
+            <input type="hidden" id="nit" name="nit">
+
+            <h2>Arma tu propio vehículo</h2>
+
+            <label for="tipo">Tipo de vehículo:</label>
+            <select id="tipo" name="tipo" onchange="updateBrandOptions()">
+                <option value="carro">🚗 Carro</option>
+                <option value="camion">🚚 Camión</option>
+                <option value="suv">🚙 Camioneta</option>
+            </select>
+
+            <label for="marca">Marca:</label>
+            <select id="marca" name="marca" onchange="updateModelOptions()">
+                <!-- Las opciones de marca se actualizarán según el tipo de vehículo -->
+            </select>
+
+            <label for="linea">Línea de Vehículo:</label>
+            <select id="linea" name="linea" onchange="updateYearOptions()">
+                <!-- Las opciones de línea de vehículo se actualizarán según la marca seleccionada -->
+            </select>
+
+            <label for="anio">Modelo:</label>
+            <select id="anio" name="anio">
+                <!-- Las opciones de año se actualizarán según la línea de vehículo seleccionada -->
+            </select>
+
+            <button type="submit">ENVIAR</button>
+        </form>
+    </main>
+
+    <script>
+        const vehicleData = {
+            carro: {
+                kia: {
+                    Rio: ['2018', '2019', '2020'],
+                    Cerato: ['2017', '2018', '2019'],
+                    Forte: ['2019', '2020', '2021']
+                },
+                hyundai: {
+                    Elantra: ['2016', '2017', '2018'],
+                    Accent: ['2017', '2018', '2019'],
+                    Sonata: ['2018', '2019', '2020']
+                },
+                ssangYong: {
+                    Tivoli: ['2016', '2017', '2018'],
+                    Korando: ['2019', '2020', '2021']
+                }
+            },
+            camion: {
+                kia: {
+                    BongoIII:  ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012','2013', '2014', '2015','2016', '2017']
+                },
+                hyundai: {
+                    PorterII:  ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012','2013', '2014', '2015','2016', '2017']
+                },
+                ssangYong: {
+                    RextonSports:  ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012','2013', '2014', '2015','2016', '2017']
+                }
+            },
+            suv: {
+                kia: {
+                    Carnival:  ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012','2013', '2014', '2015','2016', '2017'],
+                    Sportage:  ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012','2013', '2014', '2015','2016', '2017'],
+                    Sorento:  ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012','2013', '2014', '2015','2016', '2017']
+                },
+                hyundai: {
+                    Tucson:  ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012','2013', '2014', '2015','2016', '2017'],
+                    SantaFe:  ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012','2013', '2014', '2015','2016', '2017'],
+                    Starex:  ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012','2013', '2014', '2015','2016', '2017']
+                },
+                ssangYong: {
+                    Rexton:  ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012','2013', '2014', '2015','2016', '2017'],
+                    Actyon: ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012','2013', '2014', '2015','2016', '2017']
+                }
+            },
+        };
+
+        function updateBrandOptions() {
+            const tipo = document.getElementById('tipo').value;
+            const marca = document.getElementById('marca');
+            marca.innerHTML = '';
+
+            const marcasDisponibles = Object.keys(vehicleData[tipo]);
+
+            marcasDisponibles.forEach(marcaName => {
+                const opt = document.createElement('option');
+                opt.value = marcaName;
+                opt.innerHTML = capitalizeFirstLetter(marcaName);
+                marca.appendChild(opt);
+            });
+
+            updateModelOptions(); 
+        }
+
+        function updateModelOptions() {
+            const tipo = document.getElementById('tipo').value;
+            const marca = document.getElementById('marca').value;
+            const linea = document.getElementById('linea');
+            linea.innerHTML = '';
+
+            const lineasDisponibles = Object.keys(vehicleData[tipo][marca]);
+
+            lineasDisponibles.forEach(lineaName => {
+                const opt = document.createElement('option');
+                opt.value = lineaName;
+                opt.innerHTML = lineaName;
+                linea.appendChild(opt);
+            });
+
+            updateYearOptions();
+        }
+
+        function updateYearOptions() {
+            const tipo = document.getElementById('tipo').value;
+            const marca = document.getElementById('marca').value;
+            const linea = document.getElementById('linea').value;
+            const anio = document.getElementById('anio');
+            anio.innerHTML = '';
+
+            const aniosDisponibles = vehicleData[tipo][marca][linea];
+
+            aniosDisponibles.forEach(anioValue => {
+                const opt = document.createElement('option');
+                opt.value = anioValue;
+                opt.innerHTML = anioValue;
+                anio.appendChild(opt);
+            });
+        }
+
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        document.addEventListener('DOMContentLoaded', updateBrandOptions);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            document.getElementById('nombre').value = urlParams.get('nombre') || '';
+            document.getElementById('apellido').value = urlParams.get('apellido') || '';
+            document.getElementById('nombreFactura').value = urlParams.get('nombreFactura') || '';
+            document.getElementById('email').value = urlParams.get('email') || '';
+            document.getElementById('phone').value = urlParams.get('phone') || '';
+            document.getElementById('nit').value = urlParams.get('nit') || '';
+        });
+    </script>
+</body>
+</html>
