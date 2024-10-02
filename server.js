@@ -28,13 +28,12 @@ app.post('/enviar-correo', (req, res) => {
 
     const destinatarios = [
         email,
-        'destinatario2@gmail.com',
-        'destinatario3@gmail.com'
+        'motortoolzacapa@gmail.com'
     ];
 
     const msg = {
         to: destinatarios,
-        from: 'tu_email_verificado@ejemplo.com',
+        from: 'motortoolmarketing@gmail.com',
         subject: 'Nueva Compra Realizada',
         text: `
             Nombre: ${nombre}
