@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kia Bongo 2014</title>
+    <link rel="stylesheet" href="kia_bongo_2014.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+        }
+
+        .carousel .prev, .carousel .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .carousel .prev {
+            left: 10px;
+        }
+
+        .carousel .next {
+            right: 10px;
+        }
+
+        .carousel .dots {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .carousel .dot {
+            display: inline-block;
+            height: 10px;
+            width: 10px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .carousel .dot.active {
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="carousel">
+                <img src="bongo_2014.jpg" alt="Kia Bongo 1">
+                <img src="bongo_2014_1.jpg" alt="Kia Bongo 2" style="display:none;">
+                <img src="bongo_2014_2.jpg" alt="Kia Bongo 3" style="display:none;">
+                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+                <div class="dots">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <h1>Kia Bongo 2014</h1>
+            <p><strong>Potencia y Rendimiento:</strong> Equipado con un motor diésel de 2.5 litros y hasta 130 caballos de fuerza,
+                 el Hyundai Porter II ofrece una combinación perfecta de potencia y eficiencia.
+                  Su transmisión manual de 6 velocidades garantiza un rendimiento óptimo en cualquier situación,
+                   ya sea en la ciudad o en la carretera.</p>
+            <p><strong>Espacio y Capacidad:</strong> Con una capacidad de carga impresionante, el Porter II está diseñado para manejar cualquier desafío.
+                 Su espaciosa cabina y su plataforma de carga versátil lo convierten en el aliado perfecto para pequeñas y medianas empresas.</p>
+            <p><strong>Seguridad y Tecnología:</strong> Equipado con avanzados sistemas de seguridad, como frenos ABS y control de estabilidad,
+                 el Hyundai Porter II protege tanto al conductor como a la carga. Además, cuenta con tecnología de asistencia al conductor,
+                  incluyendo sensores de estacionamiento y cámara de reversa, para facilitar las maniobras en espacios reducidos.</p>
+            <p><strong>Diseño y Funcionalidad:</strong> Con un diseño robusto y aerodinámico, el Porter II no solo es funcional, sino también atractivo.
+                 Sus faros LED y su amplio parabrisas ofrecen una visibilidad superior, mientras que su interior ergonómico 
+                 asegura comodidad durante todo el día.</p>
+            <p><strong>Eficiencia y Economía:</strong> A pesar de su potencia, el Porter II ofrece una excelente eficiencia de combustible,
+                 permitiéndote reducir costos operativos y maximizar la productividad.</p>
+            <p>¡No esperes más! Ven y prueba el Hyundai Porter II hoy mismo y descubre por qué es el camión perfecto para tu negocio.
+                 Hyundai Porter II, donde la potencia y la eficiencia se encuentran.</p>
+        </div>
+    </div>
+    <footer>
+    <p>Contacto: +502  5632 2210</p>
+    <p>Página de Facebook</p>
+    <a href="https://www.facebook.com/share/vdgXJxJAXJoh4xdX/?mibextid=qi2Omg" target="_blank">Motortool Guatemala
+        <i class="fab fa-facebook"></i>
+    </a>
+</p>
+<p>&copy; 2024 Motortool Guatemala. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function changeSlide(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.querySelectorAll(".carousel img");
+        let dots = document.querySelectorAll(".dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
+</body>
+</html>
