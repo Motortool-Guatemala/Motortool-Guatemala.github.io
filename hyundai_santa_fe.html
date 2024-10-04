@@ -4,43 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hyundai Santa Fe</title>
-    <link rel="stylesheet" href="hyundai_santa_fe.css">
+    <link rel="stylesheet" href="hyundai_porterII_2017.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+        }
+
+        .carousel .prev, .carousel .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .carousel .prev {
+            left: 10px;
+        }
+
+        .carousel .next {
+            right: 10px;
+        }
+
+        .carousel .dots {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .carousel .dot {
+            display: inline-block;
+            height: 10px;
+            width: 10px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .carousel .dot.active {
+            background-color: #717171;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Hyundai Santa Fe</h1>
         <div class="header">
-            <img src="hyundai_santa_fe..jpg" alt="Hyundai Santa Fe">
+            <div class="carousel">
+                <img src="hyundai_santa_fe.jpg" alt="Hyundai Porter II 1">
+                <img src="hyundai_santa_fe_2.jpg" alt="Hyundai Porter II 2" style="display:none;">
+                <img src="hyundai_santa_fe_1.jpg" alt="Hyundai Porter II 3" style="display:none;">
+                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+                <div class="dots">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
         </div>
         <div class="content">
-            <p>El Hyundai Santa Fe es más que un SUV, es una declaración de estilo y tecnología avanzada. Diseñado para aquellos que buscan un vehículo que combine lujo,
-                 rendimiento y seguridad, el Santa Fe está listo para llevarte a nuevas alturas.</p>
-            <p><strong>Diseño Vanguardista:</strong> El Hyundai Santa Fe destaca con un diseño exterior audaz y sofisticado.
-                 Su parrilla frontal ancha y sus faros LED integrados crean una apariencia moderna y poderosa. Las líneas esculpidas y los detalles cromados
-                  le otorgan un toque de elegancia, mientras que su amplio tamaño asegura que siempre tengas el espacio que necesitas.</p>
-            <p><strong>Interior de Primera Clase:</strong> El interior del Santa Fe ha sido diseñado para ofrecer el máximo confort y lujo. Con asientos ergonómicos y materiales de alta calidad,
-                 cada viaje se convierte en una experiencia placentera. Su espaciosa cabina y el diseño intuitivo del tablero de instrumentos garantizan que todos los controles estén al alcance de tu mano.</p>
-            <p><strong>Tecnología de Vanguardia:</strong> Equipado con una pantalla panorámica curva de 12,3 pulgadas, el Santa Fe te mantiene conectado y en control en todo momento.
-                 Su sistema de infoentretenimiento avanzado, compatible con Android Auto y Apple CarPlay, junto con las actualizaciones de software Over The Air,
-                  garantizan que siempre estés al día con la última tecnología.</p>
-            <p><strong>Rendimiento y Eficiencia:</strong> El Hyundai Santa Fe ofrece una gama de motores eficientes y potentes, incluyendo opciones híbridas y híbridas enchufables.
-                 Con su etiqueta ECO, no solo reduces tu huella de carbono, sino que también disfrutas de ventajas en la movilidad urbana.
-                  Su suspensión avanzada y mayor distancia entre ejes proporcionan una conducción suave y estable en cualquier terreno.</p>
-            <p><strong>Seguridad Avanzada:</strong> La seguridad es una prioridad en el Hyundai Santa Fe. Equipado con sistemas de asistencia al conductor de última generación,
-                 como el frenado de emergencia autónomo y el asistente de mantenimiento de carril, puedes conducir con total tranquilidad sabiendo que estás protegido en todo momento.</p>
-            <p><strong>Versatilidad y Espacio:</strong> Con un maletero espacioso y asientos traseros abatibles, el Santa Fe se adapta a todas tus necesidades,
-                 ya sea para un viaje familiar o una escapada de fin de semana. Su diseño inteligente maximiza el espacio interior, ofreciendo comodidad para todos los pasajeros.</p>
-        </div>
+            <h1>Hyundai Santa Fe 2009.</h1>
+            <p><strong>Modelo:</strong>2009.</p>
+            <p><strong>Color:</strong>Blanca.</p> 
+            <p>Cuatro Cilindros.</p> 
+            <p>Combustible Diesel.</p> 
+            <p>Transmisión automática.</p>
     </div>
     <footer>
-        <p>Contacto: +502  5632 2210</p>
-        <p>Página de Facebook</p>
-        <a href="https://www.facebook.com/motortool.502/photos_by" target="_blank">Motortool Guatemala
-            <i class="fab fa-facebook"></i>
-        </a>
-    </p>
-    <p>&copy; 2024 Motortool Guatemala. Todos los derechos reservados.</p>
+    <p>Contacto: +502  5632 2210</p>
+    <p>Página de Facebook</p>
+    <a href="https://www.facebook.com/share/vdgXJxJAXJoh4xdX/?mibextid=qi2Omg" target="_blank">Motortool Guatemala
+        <i class="fab fa-facebook"></i>
+    </a>
+</p>
+<p>&copy; 2024 Motortool Guatemala. Todos los derechos reservados.</p>
 </footer>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function changeSlide(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.querySelectorAll(".carousel img");
+        let dots = document.querySelectorAll(".dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
 </body>
 </html>
