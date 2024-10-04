@@ -3,32 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kia Sportage</title>
+    <title>Kia Sportage 2006</title>
     <link rel="stylesheet" href="kia_sportage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+        }
+
+        .carousel .prev, .carousel .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .carousel .prev {
+            left: 10px;
+        }
+
+        .carousel .next {
+            right: 10px;
+        }
+
+        .carousel .dots {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .carousel .dot {
+            display: inline-block;
+            height: 10px;
+            width: 10px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .carousel .dot.active {
+            background-color: #717171;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <img src="kia_sportage.jpg" alt="Kia Sportage">
-        </div>
-        <div class="content">
-            <h1>Kia Sportage</h1>
-            <p><strong>Potencia y Rendimiento:</strong> Acelera de 0 a 100 km/h en solo 11.1 segundos, alcanzando una velocidad máxima de 177 km/h.</p>
-            <p><strong>Espacio y Confort:</strong> Con capacidad para 5 pasajeros y un maletero que se adapta a todas tus necesidades, el Sportage es perfecto para viajes familiares y aventuras al aire libre.</p>
-            <p><strong>Tecnología Avanzada:</strong> Equipado con tracción en las cuatro ruedas (4WD) para un control superior en cualquier condición.</p>
-            <p><strong>Eficiencia de Combustible:</strong> Disfruta de un consumo combinado de solo 7 l/100 km, ideal para largas travesías sin preocuparte por el repostaje constante.</p>
-            <p>El Kia Sportage 2006 no es solo un vehículo, es tu compañero de viaje perfecto. ¡Prepárate para explorar nuevos horizontes con estilo y confianza!</p>
+            <div class="carousel">
+                <img src="kia_sportage.jpg" alt="Kia Sportage 1">
+                <img src="sportage_2010_1.jpg" alt="Kia Sportage 2" style="display:none;">
+                <img src="kia_sportage_1.jpg" alt="Kia Sportage 3" style="display:none;">
+                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+                <div class="dots">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
                 </div>
             </div>
-                  <footer>
-                    <p>Contacto: +502  5632 2210</p>
-                    <p>Página de Facebook</p>
-                    <a href="https://www.facebook.com/share/vdgXJxJAXJoh4xdX/?mibextid=qi2Omg" target="_blank">Motortool Guatemala
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                </p>
-                <p>&copy; 2024 Motortool Guatemala. Todos los derechos reservados.</p>
-                </footer>
+        </div>
+        <div class="content">
+            <h1>Kia Sportage 2006</h1>
+            <p><strong>Modelo:</strong>2006.</p>
+            <p><strong>Color:</strong>Gris con negro.</p> 
+            <p>Combustible Diesel.</p> 
+            <p>Cuatro cilindros.</p>
+        </div>
+    </div>
+    <footer>
+    <p>Contacto: +502  5632 2210</p>
+    <p>Página de Facebook</p>
+    <a href="https://www.facebook.com/share/vdgXJxJAXJoh4xdX/?mibextid=qi2Omg" target="_blank">Motortool Guatemala
+        <i class="fab fa-facebook"></i>
+    </a>
+</p>
+<p>&copy; 2024 Motortool Guatemala. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function changeSlide(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.querySelectorAll(".carousel img");
+        let dots = document.querySelectorAll(".dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
 </body>
 </html>
